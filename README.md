@@ -1,70 +1,120 @@
-# Getting Started with Create React App
+# Hari Krishnan - Personal Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, highly interactive personal portfolio built with React, Tailwind CSS, Framer Motion, and a Node/Express backend. This project showcases skills, projects, and experiences with a smooth, dynamic user interface.
 
-## Available Scripts
+## 🚀 Features
 
-In the project directory, you can run:
+- **Dynamic Interactive UI:**
+  - Custom animated cursor using `framer-motion`.
+  - Scroll progress bar overlay.
+  - Smooth reveal animations on scroll (`AOS` and `framer-motion`).
+  - Welcome screen with animated entry.
+- **Modern Styling:**
+  - Built with Tailwind CSS for utility-first styling.
+  - Custom UI elements, gradients, and animated noise/grain overlays.
+- **Backend Integration:**
+  - Express.js backend to handle contact form submissions.
+  - Integration with email services (Nodemailer / Resend) to forward messages directly to your inbox.
+- **Fully Responsive:** Adapts beautifully from mobile devices to large desktop monitors.
 
-### `npm start`
+## 🛠️ Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Frontend
+- **React.js (v18)**
+- **React Router v6** (for routing and project detail pages)
+- **Tailwind CSS** (for styling)
+- **Framer Motion & AOS** (for complex animations)
+- **Material UI & Lucide React & React Icons** (for vector icons)
+- **SweetAlert2** (for beautiful alert dialogs)
+- **DotLottie React** (for Lottie animations)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Backend
+- **Node.js & Express.js**
+- **CORS** (cross-origin resource sharing)
+- **Dotenv** (environment variable management)
+- **Resend API / Nodemailer** (email delivery system)
 
-### `npm test`
+## 📁 Project Structure
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```text
+/
+├── server/                 # Express backend server
+│   ├── server.js           # Main server file and email routing
+│   ├── package.json        # Backend dependencies
+│   └── .env                # Backend environment variables
+├── src/                    # React frontend application
+│   ├── components/         # Reusable UI components (Navbar, Skills, etc.)
+│   ├── Pages/              # Page views (Home, About, Portfolio, Contact, etc.)
+│   ├── App.jsx             # Main router and layout component
+│   └── index.css           # Global Tailwind and custom styles
+├── public/                 # Static assets (images, index.html)
+└── package.json            # Frontend dependencies and scripts
+```
 
-### `npm run build`
+## ⚙️ Getting Started
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Prerequisites
+- Node.js (v16 or higher)
+- npm or yarn
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 1. Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Clone the repository and install both frontend and backend dependencies.
 
-### `npm run eject`
+```bash
+# Install frontend dependencies
+npm install
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# Install backend dependencies
+cd server
+npm install
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 2. Environment Variables
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### Backend (`server/.env`)
+Create a `.env` file in the `server` directory. Depending on your configuration (Resend or Nodemailer), you will need:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+**For Resend setup:**
+```env
+RESEND_API_KEY=your_resend_api_key_here
+YOUR_EMAIL=your_personal_email_here
+PORT=3001
+```
 
-## Learn More
+**For Nodemailer (Gmail) setup:**
+```env
+EMAIL_USER=your_gmail_address
+EMAIL_PASS=your_app_password
+PORT=3001
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Frontend (`/.env`)
+If you encounter a `SecurityError` with `localStorage` on newer versions of Node, ensure you run the app using the configured script in `package.json`, which passes the `--localstorage-file` argument.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 3. Running the App locally
 
-### Code Splitting
+You'll need two terminals to run the full stack application.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+**Terminal 1 (Backend):**
+```bash
+cd server
+npm start
+```
+*The server will start on port 3001.*
 
-### Analyzing the Bundle Size
+**Terminal 2 (Frontend):**
+```bash
+npm start
+```
+*The React app will launch in development mode at http://localhost:3000.*
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 🎨 Customization
 
-### Making a Progressive Web App
+- **Colors & Theming:** To modify the primary theme colors, adjust the Tailwind utility classes in your components or modify `tailwind.config.js`.
+- **Content:** Update the text and imagery in the respective files inside `src/Pages/`.
+- **Projects:** Add or remove projects by modifying the portfolio data, often passed into the `Portofolio.jsx` and `ProjectDetail.jsx` components.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 📄 License
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+© 2025 Hari Krishnan. All Rights Reserved.
